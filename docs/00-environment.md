@@ -8,7 +8,7 @@ REA: official npm package rea-agents 6.7.0, acquired from a trusted setup direct
 
 The repository's current docs advertise inspect-desktop-application, but the published 6.7.0 CLI rejected it as COMMAND_NOT_FOUND. Used verified inspect-macho and inspect-plist commands instead. Native macOS metadata providers succeeded without Hopper/Ghidra. No decompiler provider is installed or required for this work. No paid tools or security changes were made.
 
-Codex must restart to discover a newly registered MCP server. CLI checks work in this session; tool discovery through Codex's refreshed catalog remains a restart check. See https://github.com/morluto/rea/blob/main/docs/installation.md and https://github.com/morluto/rea/blob/main/docs/desktop-applications.md (consulted 30 October 2026).
+Codex must restart to discover a newly registered MCP server. CLI checks work in this session. A direct local stdio MCP probe initialized REA, listed 207 tools, opened the authorized app target and successfully invoked inspect_plist on its Info.plist. Discovery through Codex's refreshed catalog remains a restart check. The MCP method requires an opened target and an actual plist file path; the CLI app argument performs that setup automatically. See https://github.com/morluto/rea/blob/main/docs/installation.md and https://github.com/morluto/rea/blob/main/docs/desktop-applications.md (consulted 30 October 2026).
 
 SwiftUI's new @State macro could not load its plugin from this CLT installation. The editor uses its ObservableObject model for temporary drawing state; the native app subsequently compiled and launched.
 
