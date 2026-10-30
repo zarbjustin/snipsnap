@@ -1,0 +1,19 @@
+name: Build and test
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: |
+          ./scripts/check.sh
+          ditto -c -k --sequesterRsrc --keepParent build/SnipSnap.app build/SnipSnap-development.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SnipSnap-development-app
+          path: build/SnipSnap-development.zip
